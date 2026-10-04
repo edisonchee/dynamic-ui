@@ -1,0 +1,10 @@
+# Dependencies are installed from the lockfile, never committed.
+node_modules/
+
+# Build output (Vite, Storybook, tsc). Regenerated on every build.
+dist/
+storybook-static/
+
+# Local editor / OS noise.
+.DS_Store
+*.log
