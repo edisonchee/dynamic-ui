@@ -1,0 +1,43 @@
+/*
+ * Styles for the spike's own components. Plain CSS, one class per
+ * component, no variables, no theme. Each component's React code is in
+ * orgCatalog.tsx.
+ */
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card {
+  border: 1px solid #999;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.text {
+  margin: 0;
+}
+
+.button {
+  align-self: flex-start;
+  padding: 4px 12px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.account-summary {
+  border: 1px solid #999;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.account-summary__title {
+  margin: 0;
+}
+
+.account-summary__balance {
+  margin: 8px 0;
+  font-size: 24px;
+}
