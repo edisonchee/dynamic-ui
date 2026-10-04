@@ -16,7 +16,12 @@ cd spikes/001-renderer
 pnpm install
 pnpm dev       # open the printed localhost URL
 pnpm build     # typecheck + production build, proves it compiles
+pnpm storybook # Storybook on http://localhost:6006 (listens on 0.0.0.0)
 ```
+
+Running inside a VM? See
+[`docs/dev-env/virtualbox-debian.md`](../../docs/dev-env/virtualbox-debian.md)
+for port forwarding, file watching and troubleshooting.
 
 ## What each file does
 
@@ -28,8 +33,11 @@ pnpm build     # typecheck + production build, proves it compiles
 | `vite.config.ts` | Adds the React plugin (JSX transform + fast refresh). Nothing else. |
 | `index.html` | Vite's entry point. It loads `src/main.tsx` as an ES module. |
 | `src/main.tsx` | Mounts `<App />` into `#root` inside `StrictMode`. |
+| `.storybook/main.ts` | Storybook config: where stories live, telemetry off, allowed hosts, optional file polling. |
+| `.storybook/preview.ts` | Settings applied to every story (just padding for now). |
+| `src/Scenarios.stories.tsx` | One story per scenario, plus a Playground you edit through Controls. |
 | `src/App.tsx` | The plain Vite page: every scenario on one page, plus an action log. |
-| `src/ScenarioPlayer.tsx` | Replays a list of message steps into a `MessageProcessor` and renders its surfaces with `<A2uiSurface>`. |
+| `src/ScenarioPlayer.tsx` | Replays a list of message steps into a `MessageProcessor` and renders its surfaces with `<A2uiSurface>`. Shared by the page and the stories. |
 | `src/orgCatalog.tsx` | Our `org-catalog`: Column, Card, Text, Button and an `AccountSummary` block. Each is a Zod schema (what the agent may send) plus a plain HTML React view. |
 | `src/catalog.css` | Plain CSS for those components, one class each. No A2UI CSS is used anywhere. |
 | `src/messages.ts` | A hard-coded A2UI v0.9 message sequence (what an agent would stream). |
